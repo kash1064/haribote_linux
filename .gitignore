@@ -1,0 +1,3 @@
+*.lock
+*.bash_history
+*.cache

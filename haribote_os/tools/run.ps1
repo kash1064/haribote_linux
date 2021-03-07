@@ -1,0 +1,1 @@
+qemu-system-i386.exe -rtc base=localtime -drive file=C:/Users/yuki/Documents/kurara_os_lab/p2_30daysOS_haribote/haribote.img,format=raw,if=floppy -boot order=c
