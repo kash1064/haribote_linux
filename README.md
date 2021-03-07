@@ -18,7 +18,10 @@
 ```
 sudo /etc/init.d/docker start
 docker build -t haribote .
-docker run --rm -it --user ubuntu -v $PWD:/haribote haribote bash
 ```
 
-2. 
+2. `haribote_os/` 直下で`docker run --rm -it --user ubuntu -v $PWD:/haribote haribote bash`を実行し、開発環境のコンテナにログインする。
+
+3. コンテナ内で`make haribote.img`を実行し、イメージファイルをビルドする。
+
+4. ホストOS で`qemu-system-i386.exe -rtc base=localtime -drive file=<haribote.imgの絶対パス>,format=raw,if=floppy -boot order=c` を実行し、OS を QEMU で起動する。
