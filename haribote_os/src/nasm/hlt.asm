@@ -4,6 +4,5 @@ bits 32
     MOV		EBX,msg
     INT		0x40
     RETF
-    
 msg:
-    DB	"hello", 0
+    DB	"hello",0
