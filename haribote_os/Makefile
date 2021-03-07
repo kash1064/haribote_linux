@@ -50,18 +50,13 @@ haribote.img : ipl.bin hlt.hrb haribote.sys a.hrb winhelo.hrb star.hrb line.hrb 
 	mcopy -i haribote.img ${HRBFILE_DIR}/noodle.hrb ::
 	mcopy -i haribote.img ${HRBFILE_DIR}/color.hrb ::
 
-asm :
-	make -r ipl.bin
 
-img :
-	make -r haribote.img
-
-run :
-	make hlt.bin
-	make img
-
-start_quem : ## 
-	qemu-system-i386 -drive file=haribote.img,format=raw,if=floppy
+test: ipl.bin
+	mformat -f 1440 -C -B ${OBJFILE_DIR}/ipl.bin -i haribote.img ::
+	make start_quem
+	
+start_quem:
+	qemu-system-i386 -drive file=haribote.img,format=raw,if=floppy -nographic
 
 clear :
 	rm *.lst *.bin *.sys *.img *.hrb *.obj *.o
